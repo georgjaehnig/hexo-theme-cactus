@@ -87,7 +87,18 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', '<%= theme.google_analytics.id %>', { 'anonymize_ip': true, 'storage': 'none' });
+        gtag('consent', 'default', {
+          'ad_storage': 'denied',
+          'analytics_storage': 'denied'
+        });
+        gtag(
+          'config',
+          '<%= theme.google_analytics.id %>',
+          {
+            client_storage: 'none',
+            client_id: 'foo',
+          }
+        );
     </script>
 <% } %>
 <!-- Baidu Analytics -->
